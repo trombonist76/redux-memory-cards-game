@@ -1,38 +1,206 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Sora", sans-serif;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.container {
+  height: 70%;
+  flex: 1;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.playground {
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar {
+  align-self: start;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 15px 0 0 15px;
+}
+
+.navbar .content {
+  height: 70px;
+  width: 100%;
+  background-color: #1d3557;
+  transform: translateX(-30px);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  overflow: hidden;
+}
+
+.score {
+  display: flex;
+  margin: auto;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.score span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.score span:first-child {
+  width: 150px;
+}
+
+.score span:last-child {
   text-align: center;
+  flex: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.replay {
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.replay button {
+  background: none;
+  color: red;
+  font-size: 18px;
+  height: 100%;
+  color: white;
+  width: 120px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.replay:hover button {
+  text-decoration: underline;
+}
+
+.replay button:disabled {
+  color: #bbb;
+}
+
+.timer {
+  width: 130px;
+  height: 130px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #8ecae6;
+  position: relative;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.timer svg {
+  width: 40px;
+  height: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timer span {
+  width: 60px;
+  height: 60px;
+}
+
+.stats {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.invisible {
+  display: none;
+}
+
+.gameResults {
+  width: 100%;
+  align-self: flex-start;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px 0 0 0;
+  background-color: #faf8ef;
+}
+
+.gameResults h3 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ee6c4d;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+table tr:nth-child(even) {
+  background-color: #faf8ef;
+}
+thead tr:nth-child(odd) {
+  background-color: #faf8ef;
+}
+tbody tr:nth-child(odd) {
+  background-color: #dde5b6;
+}
+
+.card {
+  margin: 0 5px 10px 5px;
+  position: relative;
+  width: 15%;
+  height: 120px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.card .front,
+.card .back {
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0eee4;
+  height: inherit;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+
+.active .front {
+  transform: rotateY(-180deg);
+}
+
+.active .back {
+  transform: rotateY(0);
+}
+
+.back {
+  transform: rotateY(180deg);
 }
