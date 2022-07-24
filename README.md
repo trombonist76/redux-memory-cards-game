@@ -2,6 +2,10 @@
 
 This project is a spending money app developed with reactjs
 
+## Demo
+
+[Netlify](https://cardzmemory.netlify.app)
+
 ## Available Scripts
 
 In the project directory, you can run
